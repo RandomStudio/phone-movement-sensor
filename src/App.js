@@ -27,9 +27,9 @@ class App extends Component {
       },
       time: Date.now()
     }
-    console.log(motion);
+    // console.log(motion);
 
-    socket.emit('motion', motion);
+    socket.emit('motionIn', motion);
 
     this.setState({ lastMotionEvent: motion });
   }
@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state && this.state.lastMotionEvent &&
-          <code>{JSON.stringify(this.state.lastMotionEvent)}</code>
+          <code>{JSON.stringify(this.state.lastMotionEvent, null, 4)}</code>
         }
       </div>
     );
